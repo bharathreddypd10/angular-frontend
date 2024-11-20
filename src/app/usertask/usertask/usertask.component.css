@@ -1,0 +1,12 @@
+.service-request-card{
+    display: inline-block;
+}
+
+.progress-bar-card{
+    display: inline-block;
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}

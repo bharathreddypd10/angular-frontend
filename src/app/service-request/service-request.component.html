@@ -1,0 +1,103 @@
+<h3 style="text-align: center;">Service Request Form</h3>
+<div class="booking-form-container">
+    <form [formGroup]="bookingForm" (ngSubmit)="onSubmit()">
+      <!-- Customer Name -->
+      <mat-form-field appearance="fill">
+        <mat-label>Customer Name</mat-label>
+        <input matInput formControlName="customerName" placeholder="Enter your name">
+        <mat-error *ngIf="bookingForm.get('customerName')?.invalid && bookingForm.get('customerName')?.touched">
+          Name is required (min. 3 characters).
+        </mat-error>
+      </mat-form-field>
+  
+      <!-- Contact Number -->
+      <mat-form-field appearance="fill">
+        <mat-label>Contact Number</mat-label>
+        <input matInput formControlName="contactNumber" placeholder="Enter your contact number">
+        <mat-error *ngIf="bookingForm.get('contactNumber')?.invalid && bookingForm.get('contactNumber')?.touched">
+          Enter a valid 10-digit phone number.
+        </mat-error>
+      </mat-form-field>
+  
+      <!-- Email -->
+      <mat-form-field appearance="fill">
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email" placeholder="Enter your email">
+        <mat-error *ngIf="bookingForm.get('email')?.invalid && bookingForm.get('email')?.touched">
+          Enter a valid email.
+        </mat-error>
+      </mat-form-field>
+  
+      <!-- Vehicle Type -->
+      <mat-form-field appearance="fill">
+        <mat-label>Vehicle Type</mat-label>
+        <mat-select formControlName="vehicleType">
+          <mat-option *ngFor="let type of vehicleTypes" [value]="type">{{ type }}</mat-option>
+        </mat-select>
+        <mat-error *ngIf="bookingForm.get('vehicleType')?.invalid && bookingForm.get('vehicleType')?.touched">
+          Vehicle type is required.
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Vehicle Number</mat-label>
+        <input matInput formControlName="vehicleNumber" placeholder="Enter your vehicle number">
+        <mat-error *ngIf="bookingForm.get('vehicleNumber')?.touched">
+          vehicle number is reqiured.
+        </mat-error>
+      </mat-form-field>
+  
+      <!-- Service Type -->
+      <mat-form-field appearance="fill">
+        <mat-label>Service Type</mat-label>
+        <mat-select formControlName="serviceType">
+          <mat-option *ngFor="let type of serviceTypes" [value]="type">{{ type }}</mat-option>
+        </mat-select>
+        <mat-error *ngIf="bookingForm.get('serviceType')?.invalid && bookingForm.get('serviceType')?.touched">
+          Service type is required.
+        </mat-error>
+      </mat-form-field>
+  
+      <!-- Service Date -->
+      <mat-form-field appearance="fill">
+        <mat-label>Service Date</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="serviceDate" placeholder="Choose a date">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+        <mat-error *ngIf="bookingForm.get('serviceDate')?.invalid && bookingForm.get('serviceDate')?.touched">
+          Please select a date.
+        </mat-error>
+      </mat-form-field>
+
+      <!-- Service Time -->
+      <mat-form-field appearance="fill">
+        <mat-label>Service Time</mat-label>
+        <input matInput formControlName="serviceTime" type="time" placeholder="time">
+        <mat-error *ngIf="bookingForm.get('serviceTime')?.invalid && bookingForm.get('serviceTime')?.touched">
+          Please select a valid time.
+        </mat-error>
+      </mat-form-field>
+
+      <!-- Location Field -->
+    <mat-form-field appearance="fill">
+      <mat-label>Service Location</mat-label>
+      <input matInput formControlName="location" placeholder="Select location">
+      <button matSuffix mat-icon-button type="button" (click)="openMapModal()">
+        <mat-icon>place</mat-icon>
+      </button>
+      <mat-error *ngIf="bookingForm.get('location')?.invalid && bookingForm.get('location')?.touched">
+        Location is required.
+      </mat-error>
+    </mat-form-field>
+  
+      <!-- Comments -->
+      <mat-form-field appearance="fill">
+        <mat-label>Comments</mat-label>
+        <textarea matInput formControlName="comments" placeholder="Any specific requests?"></textarea>
+      </mat-form-field>
+  
+      <!-- Submit Button -->
+      <button mat-raised-button color="primary" type="submit" [disabled]="bookingForm.invalid">Submit</button>
+    </form>
+  </div>
+  

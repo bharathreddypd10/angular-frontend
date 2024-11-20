@@ -1,0 +1,8 @@
+<ng-container *ngIf="isAdmin; else userLayout">
+    <app-admin-app-navbar></app-admin-app-navbar>
+    <router-outlet></router-outlet>
+  </ng-container>
+  <ng-template #userLayout>
+    <app-user-app-navbar></app-user-app-navbar>
+    <router-outlet></router-outlet>
+  </ng-template>

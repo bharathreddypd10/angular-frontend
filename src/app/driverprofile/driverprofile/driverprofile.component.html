@@ -1,0 +1,46 @@
+<div class="driver-profile">
+    <h2>Driver Profile</h2>
+  
+    <form class="profile-form">
+      <!-- Email Field (read-only for admin) -->
+      <mat-form-field appearance="fill">
+        <mat-label>Email</mat-label>
+        <input matInput name="email" [(ngModel)]="driverDetails.driver_email" [readonly]="true">
+      </mat-form-field>
+  
+      <!--  Name Field -->
+      <mat-form-field appearance="fill">
+        <mat-label>Name</mat-label>
+        <input matInput name="adminName" [(ngModel)]="driverDetails.driver_name" [readonly]="!isEditing">
+      </mat-form-field>
+  
+      <!-- Phone Number Field -->
+      <mat-form-field appearance="fill">
+        <mat-label>Phone Number</mat-label>
+        <input matInput name="phoneNumber" [(ngModel)]="driverDetails.driver_mobile" [readonly]="!isEditing">
+      </mat-form-field>
+
+       <!-- Age  Field -->
+       <mat-form-field appearance="fill">
+        <mat-label>Age</mat-label>
+        <input matInput name="age" [(ngModel)]="driverDetails.driver_age" [readonly]="!isEditing">
+      </mat-form-field>
+  
+      <!-- Edit Button -->
+      <button mat-raised-button color="primary" (click)="toggleEdit()">
+        {{ isEditing ? 'Cancel' : 'Edit Profile' }}
+      </button>
+  
+      <!-- Save Button (only visible when editing) -->
+      <button *ngIf="isEditing" mat-raised-button color="accent" (click)="saveProfile()">Save</button>
+    </form>
+  
+    <!-- Success and Error Messages -->
+    <div *ngIf="updateSuccess" class="success-message">
+      Profile updated successfully!
+    </div>
+    <div *ngIf="updateError" class="error-message">
+      There was an error updating your profile. Please try again.
+    </div>
+  </div> 
+  

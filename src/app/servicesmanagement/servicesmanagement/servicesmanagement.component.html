@@ -1,0 +1,71 @@
+<h3>Service Management</h3>
+
+<!-- Add New Service Button -->
+<button mat-raised-button color="primary" (click)="toggleForm()">
+  {{ showForm ? 'Cancel' : 'Add New Service' }}
+</button>
+
+<!-- Form for Adding New Service -->
+<div *ngIf="showForm">
+  <form [formGroup]="serviceForm" (ngSubmit)="confirmAddService()">
+    <mat-form-field>
+      <mat-label>Service Type</mat-label>
+      <input matInput formControlName="service_type" placeholder="Enter service type">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Price</mat-label>
+      <input matInput formControlName="price" type="number" placeholder="Enter price">
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" type="submit">Add Service</button>
+  </form>
+</div>
+
+<!-- Service Table -->
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+  <!-- Service Type Column -->
+  <ng-container matColumnDef="serviceType">
+    <th mat-header-cell *matHeaderCellDef> Service Type </th>
+    <td mat-cell *matCellDef="let service">
+      <ng-container *ngIf="editedService?.id === service.id; else viewMode">
+        <input [(ngModel)]="editedService.service_type" placeholder="Edit service type">
+      </ng-container>
+      <ng-template #viewMode>
+        {{service.service_type}}
+      </ng-template>
+    </td>
+  </ng-container>
+
+  <!-- Price Column -->
+  <ng-container matColumnDef="price">
+    <th mat-header-cell *matHeaderCellDef> Price </th>
+    <td mat-cell *matCellDef="let service">
+      <ng-container *ngIf="editedService?.id === service.id; else viewPrice">
+        <input [(ngModel)]="editedService.price" type="number" placeholder="Edit price">
+      </ng-container>
+      <ng-template #viewPrice>
+        {{service.price | currency:'INR'}}
+      </ng-template>
+    </td>
+  </ng-container>
+
+  <!-- Actions Column -->
+  <ng-container matColumnDef="actions">
+    <th mat-header-cell *matHeaderCellDef> Actions </th>
+    <td mat-cell *matCellDef="let service">
+      <ng-container *ngIf="editedService?.id === service.id; else editMode">
+        <button mat-button color="primary" (click)="saveService()">Save</button>
+        <button mat-button color="warn" (click)="cancelEdit()">Cancel</button>
+      </ng-container>
+      <ng-template #editMode>
+        <button mat-button color="primary" (click)="editService(service)">Edit</button>
+        <button mat-button color="warn" (click)="deleteService(service.id)">Delete</button>
+      </ng-template>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

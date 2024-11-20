@@ -1,0 +1,45 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-lg-4 col-md-4 col-sm-12 mb-3">
+      <div
+        class="card text-center h-100"
+        style="background-color: #f8d7da;"
+        (click)="navigateTo('pendingservices')"
+      >
+        <div class="card-body">
+          <h5 class="card-title">Pending Service Requests </h5>
+          <p class="card-text">
+            Pending Customer Service Requests. 
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-4 col-md-4 col-sm-12 mb-3">
+      <div
+        class="card text-center h-100"
+        style="background-color: #d1ecf1;"
+        (click)="navigateTo('acceptedservices')"
+      >
+        <div class="card-body">
+          <h5 class="card-title">Accepted Service Requests</h5>
+          <p class="card-text">Accepted Customer Service Requests</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-4 col-md-4 col-sm-12 mb-3">
+      <div
+        class="card text-center h-100"
+        style="background-color: #d4edda;"
+        (click)="navigateTo('completedservices')"
+      >
+        <div class="card-body">
+          <h5 class="card-title">Completed Service Requests</h5>
+          <p class="card-text">Review your Completed service Requests.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,39 @@
+/* Navbar Background */
+.navbar {
+    background-color: #343a40; /* Dark background */
+  }
+  
+  /* Brand Styling */
+  .navbar .navbar-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #f8f9fa;
+  }
+  
+  /* Nav Links Styling */
+  .navbar .nav-link {
+    font-size: 1.1rem;
+    color: #f8f9fa;
+    margin-right: 1rem;
+  }
+  
+  /* Hover Effect */
+  .navbar .nav-link.active {
+    background-color: #ddd;
+    color: black;
+    cursor: pointer;
+  }
+  
+  /* Active Link Styling
+  .navbar .nav-link.active {
+    color: #ff5733;
+    font-weight: bold;
+  } */
+  
+  /* Responsive Adjustments */
+  @media (max-width: 900px) {
+    .navbar .nav-item {
+      margin-bottom: 1rem;
+    }
+  }
+  

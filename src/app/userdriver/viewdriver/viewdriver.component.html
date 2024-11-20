@@ -1,0 +1,39 @@
+<div *ngFor="let driver of drivers">
+    <mat-card class="driver-card">
+      <mat-card-header>
+        <mat-card-title>Assigned Driver</mat-card-title>
+      </mat-card-header>
+  
+      <mat-card-content class="content">
+        <p><strong>Name:</strong> {{ driver.driver_name }}</p>
+        <p><strong>Mobile Number:</strong> {{ driver.driver_mobile }}</p>
+        <p><strong>Email:</strong> {{ driver.driver_email }}</p>
+        <p><strong>Age:</strong> {{ driver.driver_age }}</p>
+      </mat-card-content>
+  
+      <mat-card-actions>
+        <button mat-button color="primary">Contact Driver</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+
+  <mat-card class="driver-progress-card">
+    <mat-card-header>
+      <mat-card-title>Driver Progress</mat-card-title>
+    </mat-card-header>
+  
+    <mat-card-content>
+      <mat-vertical-stepper [linear]="true" [selectedIndex]="currentStepIndex">
+        <mat-step
+          *ngFor="let step of UserStatusSteps; let i = index"
+          [completed]="i < currentStepIndex"
+          [editable]="false">
+          <ng-template matStepLabel>
+            <span [ngClass]="{'current-step': i === currentStepIndex}">{{ step.label }}</span>
+          </ng-template>
+        </mat-step>
+      </mat-vertical-stepper>
+    </mat-card-content>
+  </mat-card>
+  
+  

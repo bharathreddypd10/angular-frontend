@@ -1,0 +1,17 @@
+.rows {
+    transition: transform 0.2s; /* Smooth transition for zoom effect */
+    /* background-color:rgb(255, 180, 180) */
+  }
+
+  .assigned-driver {
+    background-color: rgb(180, 255, 180); /* Light green for assigned driver */
+  }
+  
+  .not-assigned {
+    background-color: rgb(255, 180, 180); /* Light red for not assigned driver */
+  }
+  
+  .rows:hover {
+    cursor: pointer; /* Show pointer cursor */
+    transform: scale(1.01); /* Slightly zoom in on hover */
+  }

@@ -1,0 +1,36 @@
+.login-container{
+    margin-top: 150px;
+}
+#togglePassword:hover{
+    cursor: pointer;
+}
+
+/* Optional: Adjust spacing and alignment */
+/* .d-flex {
+    display: flex;
+  } */
+  
+  .align-items-center {
+    align-items: center;
+  }
+  
+  .justify-content-between {
+    justify-content: space-between;
+  }
+  
+  .ml-3 {
+    margin-left: 1rem; /* Add some spacing between button and the text */
+  }
+  
+  .mb-0 {
+    margin-bottom: 0; /* Remove bottom margin from <p> tag */
+  }
+
+  .text-center a:hover{
+    cursor: pointer;
+  }
+
+  .text-center a{
+    text-decoration: none;
+  }
+  

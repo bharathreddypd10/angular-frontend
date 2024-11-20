@@ -1,0 +1,137 @@
+<div class="container">
+    <h2>Registered Drivers</h2>
+
+    <!-- Add Driver Button -->
+    <button class="btn btn-success mb-3" (click)="onAddDriver()">Add Driver</button>
+
+    <!-- Driver Table -->
+    <table class="table table-responsive table-bordered table-hover">
+      <thead>
+        <tr>
+          <th>S.No</th>
+          <th>DriverID</th>
+          <th>Driver Name</th>
+          <th>Age</th>
+          <th>Email</th>
+          <th>Mobile</th>
+          <th>Status</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let driver of drivers; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>{{ driver.driver_id }}</td>
+          <td>{{ driver.driver_name }}</td>
+          <td>{{ driver.driver_age }}</td>
+          <td>{{ driver.driver_email }}</td>
+          <td>{{ driver.driver_mobile }}</td>
+          <td>{{ driver.status }}</td>
+          <td>
+            <button (click)="onEdit(driver)" class="btn btn-primary">Edit</button>
+            <button (click)="onDelete(driver.driver_id)" class="btn btn-danger">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <!-- Edit Driver Form -->
+    <div *ngIf="isEditing">
+      <h3>Edit Driver</h3>
+      <form [formGroup]="editForm" (ngSubmit)="onUpdate()">
+        <div class="form-group">
+          <label>Driver Name</label>
+          <input formControlName="driver_name" class="form-control" />
+        </div>
+        <div class="form-group">
+          <label>Age</label>
+          <input formControlName="driver_age" class="form-control" />
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input formControlName="driver_email" [attr.disabled]="isEditing" class="form-control" />
+        </div>
+        <div class="form-group">
+          <label>Mobile</label>
+          <input formControlName="driver_mobile" class="form-control" />
+        </div>
+        <div class="form-group">
+          <label>Status</label>
+          <select formControlName="status" class="form-control">
+              <option value="free">Free</option>
+              <option value="busy">Busy</option>
+          </select>
+        </div>
+        <br>
+        <button type="submit" class="btn btn-success">Save</button>
+        <button type="button" class="btn btn-secondary" (click)="onCancel()">Cancel</button>
+      </form>
+    </div>
+
+    <!-- Add Driver Form -->
+    <div *ngIf="isAddingDriver">
+        <h3>Add New Driver</h3>
+        <form [formGroup]="addDriverForm" (ngSubmit)="onSubmitNewDriver()">
+            <div class="form-group">
+                <label>Driver Name</label>
+                <input formControlName="driver_name" class="form-control" />
+                <div class="text-danger">
+                    <small *ngIf="f['driver_name'].touched && f['driver_name'].errors?.['required']">
+                        Driver Name is required.
+                    </small>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Age</label>
+                <input formControlName="driver_age" type="number" class="form-control" />
+                <div class="text-danger">
+                    <small *ngIf="f['driver_age'].touched && f['driver_age'].errors?.['required']">
+                        Age is required.
+                    </small>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Email</label>
+                <input formControlName="driver_email" type="email" class="form-control" />
+                <div class="text-danger">
+                    <small *ngIf="f['driver_email'].touched && f['driver_email'].errors?.['required']">
+                        Email is required.
+                    </small>
+                    <small *ngIf="f['driver_email'].touched && f['driver_email'].errors?.['email']">
+                        Enter a valid email address.
+                    </small>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Password</label>
+                <input formControlName="driver_password" type="password" class="form-control" />
+                <div class="text-danger">
+                    <small *ngIf="f['driver_password'].touched && f['driver_password'].errors?.['required']">
+                        Password is required.
+                    </small>
+                    <small *ngIf="f['driver_password'].touched && f['driver_password'].errors?.['minlength']">
+                        Password must be at least 10 characters long.
+                    </small>
+                    <small *ngIf="f['driver_password'].touched && f['driver_password'].errors?.['pattern']">
+                        Password must contain at least one uppercase letter, one number, and one special character.
+                    </small>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Mobile</label>
+                <input formControlName="driver_mobile" type="text" class="form-control" />
+                <div class="text-danger">
+                    <small *ngIf="f['driver_mobile'].touched && f['driver_mobile'].errors?.['required']">
+                        Mobile number is required.
+                    </small>
+                    <small *ngIf="f['driver_mobile'].touched && f['driver_mobile'].errors?.['pattern']">
+                        Mobile number must be a valid 10-digit number.
+                    </small>
+                </div>
+            </div>
+            <br>
+            <button type="submit" class="btn btn-success">Add Driver</button>
+            <button type="button" class="btn btn-secondary" (click)="onCancelAddDriver()">Cancel</button>
+        </form>
+    </div>
+</div>

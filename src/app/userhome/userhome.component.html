@@ -1,0 +1,48 @@
+<div class="container mt-5">
+    <div class="row">
+      <!-- New Service Request -->
+      <div class="col-lg-4 col-md-4 col-sm-12 mb-3">
+        <div
+          class="card text-center h-100"
+          style="background-color: #f8d7da;"
+          (click)="navigateTo('servicerequest')"
+        >
+          <div class="card-body">
+            <h5 class="card-title">New Service Request</h5>
+            <p class="card-text">
+              Create a new service request for assistance.
+            </p>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Upcoming Bookings -->
+      <div class="col-lg-4 col-md-4 col-sm-12 mb-3">
+        <div
+          class="card text-center h-100"
+          style="background-color: #d1ecf1;"
+          (click)="navigateTo('upcomingbookings')"
+        >
+          <div class="card-body">
+            <h5 class="card-title">Upcoming Bookings</h5>
+            <p class="card-text">View your upcoming service bookings.</p>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Previous Bookings -->
+      <div class="col-lg-4 col-md-4 col-sm-12 mb-3">
+        <div
+          class="card text-center h-100"
+          style="background-color: #d4edda;"
+          (click)="navigateTo('history')"
+        >
+          <div class="card-body">
+            <h5 class="card-title">Previous Bookings</h5>
+            <p class="card-text">Review your previous service bookings.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

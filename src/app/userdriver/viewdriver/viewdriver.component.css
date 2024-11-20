@@ -1,0 +1,13 @@
+.content{
+    padding-top: 15px;
+}
+
+.driver-progress-card {
+    margin-top: 15px; /* Adjust the value as needed */
+  }
+
+/* Highlight the current step label */
+.current-step {
+    font-weight: bold;
+    color: #3f51b5; /* Primary color */
+  }

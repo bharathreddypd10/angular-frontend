@@ -1,0 +1,10 @@
+<h2>Select a Location</h2>
+<div style="text-align: center; margin-bottom: 10px;">
+  <input id="search" type="text" placeholder="Search for a location" class="search-bar" />
+  <span class="search-icon"><i class="material-icons">search</i></span>
+</div>
+<google-map height="400px" width="100%" [center]="center" [zoom]="zoom" (mapClick)="onMapClick($event)"></google-map>
+<div style="text-align: center; margin-top: 10px;">
+  <button mat-raised-button color="primary" (click)="confirmLocation()">Confirm Location</button>
+</div>
+

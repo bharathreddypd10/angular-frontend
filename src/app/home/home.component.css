@@ -1,0 +1,168 @@
+/* Container for the whole page */
+.home-container {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    background-color: #ccc;
+    /* background-image: url(../assets/vsms2.jpg); */
+    background-repeat: no-repeat;
+    background-size: cover;
+
+  }
+  
+  /* Banner Section */
+  .banner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* background-image: url(../assets/vsms.jpg); */
+    background-size:cover;
+    background-position-y:-150px;
+    background-repeat: no-repeat;
+    background-color: rgb(230, 230, 180);
+    padding: 40px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    margin-top: 60px;
+  }
+  
+  .banner-text {
+    /* display: flex; */
+    flex:1;
+    max-width: 50%;
+
+    /* align-content: center; */
+  }
+  
+  .banner-text h1 {
+    font-size: 2.5rem;
+    margin: 0;
+    color: #333;
+  }
+  
+  .banner-text p {
+    font-size: 1.2rem;
+    margin: 10px 0;
+  }
+  
+  .service-btn {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .service-btn:hover {
+    background-color: #0056b3;
+  }
+  
+  
+  /* Services Section */
+  .services {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  .service-types {
+    width: 30%;
+  }
+  
+  .service-types h3 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+  }
+  
+  .service-types ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .service-types ul li {
+    padding: 10px 0;
+    font-size: 1.2rem;
+  }
+  
+  .service-offers {
+    width: 65%;
+    position: relative;
+  }
+  
+  .service-offers h3 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+  }
+  
+  .search-bar {
+    width: 80%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+  }
+  
+  .search-icon {
+    position: absolute;
+    top: 35px;
+    right: 15px;
+  }
+  
+  .service-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  
+  .card {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .card h4 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+  }
+  
+  .card p {
+    font-size: 1rem;
+    color: #666;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .banner {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .banner-text {
+      max-width: 100%;
+      margin-bottom: 20px;
+    }
+  
+    .services {
+      flex-direction: column;
+    }
+  
+    .service-types, .service-offers {
+      width: 100%;
+    }
+  
+    .service-cards {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .banner-text h1 {
+      font-size: 2rem;
+    }
+  
+    .banner-text p {
+      font-size: 1rem;
+    }
+  }
+  

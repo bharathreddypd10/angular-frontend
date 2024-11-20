@@ -1,0 +1,40 @@
+<div class="admin-profile">
+    <h2>Admin Profile</h2>
+  
+    <form class="profile-form">
+      <!-- Email Field (read-only for admin) -->
+      <mat-form-field appearance="fill">
+        <mat-label>Email</mat-label>
+        <input matInput name="email" [(ngModel)]="adminDetails.email" [readonly]="true">
+      </mat-form-field>
+  
+      <!--  Name Field -->
+      <mat-form-field appearance="fill">
+        <mat-label>Name</mat-label>
+        <input matInput name="adminName" [(ngModel)]="adminDetails.adminName" [readonly]="!isEditing">
+      </mat-form-field>
+  
+      <!-- Phone Number Field -->
+      <mat-form-field appearance="fill">
+        <mat-label>Phone Number</mat-label>
+        <input matInput name="phoneNumber" [(ngModel)]="adminDetails.phoneNumber" [readonly]="!isEditing">
+      </mat-form-field>
+  
+      <!-- Edit Button -->
+      <button mat-raised-button color="primary" (click)="toggleEdit()">
+        {{ isEditing ? 'Cancel' : 'Edit Profile' }}
+      </button>
+  
+      <!-- Save Button (only visible when editing) -->
+      <button *ngIf="isEditing" mat-raised-button color="accent" (click)="saveProfile()">Save</button>
+    </form>
+  
+    <!-- Success and Error Messages -->
+    <div *ngIf="updateSuccess" class="success-message">
+      Profile updated successfully!
+    </div>
+    <div *ngIf="updateError" class="error-message">
+      There was an error updating your profile. Please try again.
+    </div>
+  </div> 
+  

@@ -1,0 +1,19 @@
+<div class="notifications-container">
+  <h2>Notifications</h2>
+
+  <div class="notifications-list">
+      <div
+      *ngFor="let notification of notifications"
+      class="notification"
+      [ngClass]="{ 'unread': !notification.is_read }"
+      (click)="viewNotification(notification)"
+    >
+      <div class="notification-header">
+        <span class="notification-booking-id">Booking ID: {{ notification.booking_id }}</span>
+        <span class="notification-date">{{ notification.created_at | date: 'medium' }}</span>
+      </div>
+      <div class="notification-message">{{ notification.message }}</div>
+    </div>
+  </div>
+  <!-- Display each notification in sorted order -->
+</div>

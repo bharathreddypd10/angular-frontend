@@ -1,0 +1,43 @@
+<div>
+    <h3>Service Request</h3>
+  
+    <div *ngFor="let request of requests" class="card mb-3">
+      <div class="card-body">
+        <h5 class="card-title">Booking ID: {{ request.booking_id }}</h5>
+        <p class="card-text"><strong>Customer Name:</strong> {{ request.customerName }}</p>
+        <p class="card-text"><strong>Email:</strong> {{ request.email }}</p>
+        <p class="card-text"><strong>Mobile Number:</strong> {{ request.mobile_number }}</p>
+        <p class="card-text"><strong>Vehicle Type:</strong> {{ request.vehicle_type }}</p>
+        <p class="card-text"><strong>Vehicle Number:</strong> {{ request.vehicle_number }}</p>
+        <p class="card-text"><strong>Service Type:</strong> {{ request.service_type }}</p>
+        <p class="card-text"><strong>Preferred Date:</strong> {{ request.preferred_date }}</p>
+        <p class="card-text"><strong>Preferred Time:</strong> {{ request.preferred_time }}</p>
+        <p class="card-text"><strong>Pickup Location:</strong> {{ request.pickup_location }}</p>
+        <p class="card-text"><strong>Status:</strong> {{ request.status }}</p>
+        <p class="card-text"><strong>Driver Assigned:</strong> {{ request.driver_id ? 'Assigned' : 'Not Assigned' }}</p>
+        
+        <h6>Filter by Status</h6>
+        <select [(ngModel)]="selectedStatus" (change)="fetchFreeDrivers()">
+            <option value="none">None</option>
+            <option value="free">Free</option>
+            <!-- Add more statuses as needed -->
+        </select>
+        
+        <h6>Available Drivers</h6>
+        <!-- Check if there are any free drivers -->
+        <div *ngIf="freeDrivers.length > 0; else noDrivers">
+            <div *ngFor="let driver of freeDrivers" class="card mb-2">
+                <div class="card-body">
+                    <p>{{ driver.driver_name }} - {{ driver.driver_email }} - {{ driver.driver_mobile }}</p>
+                    <button class="btn btn-primary" (click)="assignDriver(request.booking_id, driver.driver_id)" [disabled]="request.driver_id">Assign</button>
+                </div>
+            </div>
+        </div>
+        <!-- Template to display message when no drivers are found -->
+        <ng-template #noDrivers>
+          <p>No drivers available.</p>
+        </ng-template>
+      </div>
+    </div>
+  </div>
+  

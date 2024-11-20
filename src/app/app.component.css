@@ -1,0 +1,31 @@
+/* Fix the navbar at the top */
+app-navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;              /* Full width of the viewport */
+  height: 60px;               /* Set height of navbar */
+  z-index: 1000;              /* Ensure it appears above other content */
+  background-color: #333;     /* Background color */
+  color: white;               /* Text color */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional shadow for effect */
+}
+
+/* Make sure the content starts right after the navbar */
+.content {
+  margin-top: 60px;           /* This should match the height of the navbar */
+  padding: 20px;
+}
+
+/* Footer remains full width */
+.footer {
+  width: 100vw;
+  /* background-color: #333; */
+  color: white;
+  text-align: center;
+  padding: 5px 0;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  height: 60px;
+}

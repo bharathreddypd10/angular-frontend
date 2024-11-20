@@ -1,0 +1,38 @@
+.container {
+    margin: 30px auto;
+    max-width: 100%;
+  }
+  
+  .table-responsive {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  .table {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  
+  .btn {
+    margin-right: 5px;
+  }
+  
+  form {
+    margin-top: 20px;
+  }
+  
+  .btn-danger{
+    margin: 5px;
+  }
+
+
+
+
+
+
+
+
+
+  

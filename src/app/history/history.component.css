@@ -1,0 +1,18 @@
+.rows {
+    background-color: #f0f0f0;   /* Light grey background */
+    color: #7a7a7a;              /* Grey text color */
+  }
+  
+  .rows:hover {
+    background-color: #e0e0e0;    /* Slightly darker grey on hover */
+    cursor: not-allowed;          /* Not-allowed cursor to indicate finished status */
+  }
+
+  .rows td {
+    padding: 12px 8px;            /* Adds padding to cells */
+    font-style: italic;           /* Optional: Italic text style */
+  }
+  
+  .rows th {
+    font-weight: normal;          /* Consistent header font weight */
+  }
